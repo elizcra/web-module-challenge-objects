@@ -1,20 +1,31 @@
 ///////////////Menu Items (MVP)///////////////////
 
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch"};
+let burger = {name: "Burger", price: 18, category: "Lunch"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, cost, category){
-    /* Code here */
+  let menuItem = {
+    name: name,
+    cost: cost,
+    category: category
+  }
+  console.log(menuItem);
 }
+
+//console.log(createMenuItem("Test", 42, "Control"));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
+/*console.log(createMenuItem("Diet Coke", 2, "Drinks"));
+console.log(createMenuItem("Sugar Cookie", 3, "Desserts"));
+console.log(createMenuItem("Ham and Cabbage", 15, "Dinner"));*/
 
 
-/* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
+/* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. 
+Add a method to your burger object that automatically calculates price given a string as a parameter. 
 
 Your method should accept: 
 
@@ -24,7 +35,24 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
+burger = {
+  name: "Burger", price: 18, category: "Specials", discount: function(string){
+    if(string === "teacher") {
+      console.log(this.price  * .75);
+    } else if(string === "student"){
+      console.log(this.price * .75);
+    } else if (string === "public"){
+      console.log(this.price * .90);
+    }
+  }
+};
 
+/*console.log("Discounted Price - Teacher:");
+burger.discount("teacher");
+console.log("Discounted Price - Student:");
+burger.discount("student");
+console.log("Discounted Price - Public:");
+burger.discount("public");*/
 
 ///////////////Reviews (MVP)///////////////////
 
@@ -40,11 +68,25 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+console.log("Feedback - Julius:");
+console.log(reviews[5].feedback);
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+function newReview(name, rating, feedback){
+  let myReview = {
+    name: name,
+    rating: rating,
+    feedback: feedback
+  }
+  console.log(myReview);
+}
 
-/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+//newReview("Elizabeth", 5, "This is a good review!!!")
+
+/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"*/
+
+
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
